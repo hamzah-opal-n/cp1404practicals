@@ -1,6 +1,5 @@
 """
-CP1404/CP5632 - Practical
-Broken program to determine score status
+Program to determine score status.
 """
 
 from random import randint
@@ -12,7 +11,7 @@ PASSABLE_THRESHOLD = 50
 
 
 def main():
-    """Score status program with random score generator"""
+    """Score status program with random score generator."""
     score = float(input("Enter score: "))
     message = determine_score_status(score)
     print(message)
@@ -21,7 +20,7 @@ def main():
 
 
 def determine_score_status(score: float) -> str:
-    """Determine status from score"""
+    """Determine status from score."""
     if score < MINIMUM_SCORE or score > MAXIMUM_SCORE:
         return "Invalid score"
     elif score >= EXCELLENT_THRESHOLD:
