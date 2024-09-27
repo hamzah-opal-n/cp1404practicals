@@ -19,7 +19,7 @@ def main():
     choice = input(CHOICE_PROMPT).upper()
     while choice != "Q":
         if choice == "G":
-            pass
+            score = get_valid_score(MINIMUM_SCORE, MAXIMUM_SCORE)
         elif choice == "P":
             result = determine_score_status(score)
             print(f"Result: {result}")
