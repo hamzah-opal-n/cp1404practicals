@@ -24,7 +24,7 @@ def main():
             result = determine_score_status(score)
             print(f"Result: {result}")
         elif choice == "S":
-            pass
+            print_character("*", score)
         else:
             print("Invalid choice!")
         print(f"Current score: {score}")
@@ -48,6 +48,10 @@ def get_valid_number(minimum: int, maximum: int, prompt: str) -> float:
         print(f"Input must be {minimum} to {maximum} inclusive!")
         number = float(input(prompt))
     return number
+
+
+def print_character(character: str, length: float):
+    print(character * int(length))
 
 
 main()
