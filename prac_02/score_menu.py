@@ -13,13 +13,13 @@ PASSABLE_THRESHOLD = 50
 
 def main():
     """Menu-based program to get score and determine status."""
-    score = get_valid_score(MINIMUM_SCORE, MAXIMUM_SCORE)
+    score = get_valid_number(MINIMUM_SCORE, MAXIMUM_SCORE, "Enter score: ")
     print(f"Current score: {score}")
     print(MENU)
     choice = input(CHOICE_PROMPT).upper()
     while choice != "Q":
         if choice == "G":
-            score = get_valid_score(MINIMUM_SCORE, MAXIMUM_SCORE)
+            score = get_valid_number(MINIMUM_SCORE, MAXIMUM_SCORE, "Enter score: ")
         elif choice == "P":
             result = determine_score_status(score)
             print(f"Result: {result}")
@@ -41,13 +41,13 @@ def determine_score_status(score: float) -> str:
     return "Bad"
 
 
-def get_valid_score(minimum: int, maximum: int) -> float:
-    """Get a score within a specified range."""
-    score = float(input("Enter a score: "))
-    while score < minimum or score > maximum:
-        print(f"Score must be {MINIMUM_SCORE} to {MAXIMUM_SCORE} inclusive!")
-        score = float(input("Enter a score: "))
-    return score
+def get_valid_number(minimum: int, maximum: int, prompt: str) -> float:
+    """Get a number within a specified range."""
+    number = float(input(prompt))
+    while number < minimum or number > maximum:
+        print(f"Input must be {minimum} to {maximum} inclusive!")
+        number = float(input(prompt))
+    return number
 
 
 main()
