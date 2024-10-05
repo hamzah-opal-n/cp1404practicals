@@ -9,7 +9,10 @@ def main():
 
 
 def question_1():
-    pass
+    name = input("What is your name? ")
+    out_file = open('name.txt', 'w')
+    print(name, file=out_file)
+    out_file.close()
 
 
 def question_2():
