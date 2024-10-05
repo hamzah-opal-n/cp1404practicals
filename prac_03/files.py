@@ -23,7 +23,9 @@ def question_2():
 
 
 def question_3():
-    pass
+    with open("numbers.txt", "r") as in_file:
+        total = float(in_file.readline()) + float(in_file.readline())
+        print(f"Total: {total}")
 
 
 def question_4():
