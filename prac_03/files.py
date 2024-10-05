@@ -16,7 +16,10 @@ def question_1():
 
 
 def question_2():
-    pass
+    in_file = open('name.txt', 'r')
+    name = in_file.read().strip()
+    in_file.close()
+    print(f"Hi {name}!")
 
 
 def question_3():
