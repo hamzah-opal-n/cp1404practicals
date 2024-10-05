@@ -6,6 +6,10 @@ Answer the following questions:
 3. Could you change the code to avoid the possibility of a ZeroDivisionError?
 """
 
+# 1. A ValueError will occur when the numerator or denominator cannot be converted to an integer
+# 2. A ZeroDivisionError will occur when the denominator is 0
+# 3.
+
 try:
     numerator = int(input("Enter the numerator: "))
     denominator = int(input("Enter the denominator: "))
