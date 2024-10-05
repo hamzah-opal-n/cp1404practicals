@@ -29,7 +29,11 @@ def question_3():
 
 
 def question_4():
-    pass
+    with open("numbers.txt", "r") as in_file:
+        total = 0
+        for line in in_file:
+            total += float(line)
+        print(f"Total: {total}")
 
 
 main()
