@@ -7,6 +7,7 @@ FILENAME = "subject_data.txt"
 
 
 def main():
+    """Read data file and display subject details."""
     data = load_data()
     display_subject_details(data)
 
@@ -25,6 +26,7 @@ def load_data():
 
 
 def display_subject_details(data):
+    """Display subject details for each record in data."""
     max_lecturer_length = max(len(record[1]) for record in data)
     max_number_of_students_length = max(len(str(record[2])) for record in data)
     for record in data:

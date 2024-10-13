@@ -18,6 +18,7 @@ def main():
 
 
 def print_report(incomes):
+    """Display income report."""
     print("\nIncome Report\n-------------")
     total = 0
     for i in range(len(incomes)):
