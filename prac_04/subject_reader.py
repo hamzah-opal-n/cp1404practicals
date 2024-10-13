@@ -8,7 +8,7 @@ FILENAME = "subject_data.txt"
 
 def main():
     data = load_data()
-    print(data)
+    display_subject_details(data)
 
 
 def load_data():
@@ -22,6 +22,16 @@ def load_data():
         data.append(parts)
     input_file.close()
     return data
+
+
+def display_subject_details(data):
+    max_lecturer_length = max(len(record[1]) for record in data)
+    max_number_of_students_length = max(len(str(record[2])) for record in data)
+    for record in data:
+        subject, lecturer, number_of_students = record
+        print(
+            f"{subject} is taught by {lecturer:<{max_lecturer_length}} and has "
+            f"{number_of_students:>{max_number_of_students_length}} students")
 
 
 main()
