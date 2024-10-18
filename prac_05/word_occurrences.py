@@ -12,4 +12,5 @@ for word in words:
     except KeyError:
         word_to_count[word] = 1
 
-print(word_to_count)
+for word, count in sorted(word_to_count.items()):
+    print(f"{word} : {count}")
