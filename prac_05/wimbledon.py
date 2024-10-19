@@ -17,8 +17,11 @@ def main():
         for line in in_file:
             records.append(line.strip().split(","))
     champion_to_count, winning_countries = process_records(records)
-    print(champion_to_count)
-    print(winning_countries)
+    print("Wimbledon Champions:")
+    for champion, count in champion_to_count.items():
+        print(f"{champion} {count}")
+    print(f"\nThese {len(winning_countries)} countries have won Wimbledon:")
+    print(", ".join(sorted(winning_countries)))
 
 
 def process_records(records):
