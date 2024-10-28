@@ -23,6 +23,10 @@ class ProgrammingLanguage:
         self.reflection = reflection
         self.year = year
 
+    def __str__(self):
+        """String to represent a Programming Language instance."""
+        return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
+
     def is_dynamic(self):
         """Determine if a Programming Language is dynamic."""
         return self.typing == "Dynamic"
