@@ -2,8 +2,8 @@
 Guitar
 Estimate:   30 minutes
 Start Time: 2305
-End Time:   xxxx
-Time Taken: xx minutes
+End Time:   2337
+Time Taken: 32 minutes
 """
 
 CURRENT_YEAR = 2024
