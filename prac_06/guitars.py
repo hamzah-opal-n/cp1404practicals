@@ -8,8 +8,9 @@ name = input("Name: ")
 while name != "":
     year = int(input("Year: "))
     cost = float(input("Cost: $"))
-    guitars.append(Guitar(name, year, cost))
-    print(f"{name} ({year}) : ${cost:.2f} added.\n")
+    guitar = Guitar(name, year, cost)
+    guitars.append(guitar)
+    print(f"{guitar} added.\n")
     name = input("Name: ")
 
 name_length = max(len(guitar.name) for guitar in guitars)
