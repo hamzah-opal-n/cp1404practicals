@@ -1,3 +1,5 @@
+"""Programming Language client code"""
+
 from prac_06.programming_language import ProgrammingLanguage
 
 python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
