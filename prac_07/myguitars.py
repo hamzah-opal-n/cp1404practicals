@@ -10,6 +10,18 @@ def main():
     guitars = load_guitars(FILENAME)
     display_guitars(guitars)
 
+    print("\nAdd new guitars (leave name blank to finish)")
+    name = input("Name: ")
+    while name != "":
+        year = int(input("Year: "))
+        cost = float(input("Cost: $"))
+        guitar = Guitar(name, year, cost)
+        guitars.append(guitar)
+        print(f"{guitar} added.\n")
+        name = input("Name: ")
+
+    display_guitars(guitars)
+
 
 def load_guitars(filename):
     """Load guitars from filename"""
@@ -24,6 +36,7 @@ def load_guitars(filename):
 
 def display_guitars(guitars):
     """Display all guitars sorted by year"""
+    print("My guitars:")
     for guitar in sorted(guitars):
         print(guitar)
 
