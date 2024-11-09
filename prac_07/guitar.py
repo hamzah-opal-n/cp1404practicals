@@ -13,8 +13,8 @@ VINTAGE_AGE_THRESHOLD = 50
 class Guitar:
     """Represent a Guitar object."""
 
-    def __init__(self, name="", year=0, cost=0):
-        """Initialise a Car instance.
+    def __init__(self, name: str = "", year: int = 0, cost: float = 0):
+        """Initialise a Guitar instance.
 
         name: string
         year = integer
@@ -27,6 +27,10 @@ class Guitar:
     def __str__(self):
         """String to represent a Guitar instance."""
         return "{} ({}) : ${:,.2f}".format(self.name, self.year, self.cost)
+
+    def __lt__(self, other):
+        """Compare two Guitar instances based on year."""
+        return self.year < other.year
 
     def get_age(self):
         """Calculate the age of the guitar."""

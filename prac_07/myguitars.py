@@ -15,7 +15,6 @@ def load_guitars(filename):
     """Load guitars from filename"""
     guitars = []
     with open(filename, "r") as in_file:
-        in_file.readline()
         for line in in_file:
             parts = line.strip().split(',')
             guitar = Guitar(parts[0], int(parts[1]), float(parts[2]))
@@ -24,8 +23,8 @@ def load_guitars(filename):
 
 
 def display_guitars(guitars):
-    """Display all guitars"""
-    for guitar in guitars:
+    """Display all guitars sorted by year"""
+    for guitar in sorted(guitars):
         print(guitar)
 
 
