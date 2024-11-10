@@ -8,7 +8,7 @@ class Project:
         """Initialise a Project instance.
 
         name: string
-        start_date: string
+        start_date: datetime
         priority = integer
         cost_estimate: float
         percent_complete: integer
@@ -21,7 +21,8 @@ class Project:
 
     def __str__(self):
         """String to represent a Project instance."""
-        return (f"{self.name}, start: {self.start_date}, priority {self.priority}, "
+        start_date_string = self.start_date.strftime("%d/%m/%Y")
+        return (f"{self.name}, start: {start_date_string}, priority {self.priority}, "
                 f"estimate: ${self.cost_estimate:.2f}, completion: {self.percent_complete}%")
 
     def __lt__(self, other):

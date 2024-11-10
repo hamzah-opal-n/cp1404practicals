@@ -6,11 +6,12 @@ End Time:   xxxx
 Time Taken: 30 minutes (with breaks)
 """
 
+import datetime
 from prac_07.project import Project
 
 DEFAULT_FILENAME = "projects.txt"
 MENU = ("- (L)oad projects\n"
-        "- (S)ave projects)\n"
+        "- (S)ave projects\n"
         "- (D)isplay projects\n"
         "- (F)ilter projects by date\n"
         "- (A)dd new project\n"
@@ -53,7 +54,8 @@ def load_projects(filename):
         in_file.readline()
         for line in in_file:
             parts = line.split("\t")
-            project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4]))
+            start_date = datetime.datetime.strptime(parts[1], "%d/%m/%Y")
+            project = Project(parts[0], start_date, int(parts[2]), float(parts[3]), int(parts[4]))
             projects.append(project)
     print(f"Loaded {len(projects)} projects from {filename}")
     return projects
