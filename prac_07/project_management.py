@@ -38,7 +38,11 @@ def main():
         elif menu_choice == "A":
             print("add new project")
         elif menu_choice == "U":
-            print("update project")
+            for i, project in enumerate(projects):
+                print(f"{i} {project}")
+            project_number_choice = int(input("Project choice: "))
+            print(projects[project_number_choice])
+            projects[project_number_choice] = update_project(projects[project_number_choice])
         else:
             print("Invalid choice")
         print(MENU)
@@ -80,6 +84,25 @@ def filter_projects_by_date(projects):
     filtered_projects = [project for project in projects if project.starts_after_date(filter_date)]
     for project in sorted(filtered_projects, key=lambda project: project.start_date):
         print(project)
+
+
+def update_project(project):
+    """Update a project's percentage completion and priority"""
+    new_percentage_text = input("New Percentage: ")
+    if new_percentage_text != "":
+        try:
+            new_percentage = int(new_percentage_text)
+            project.percent_complete = new_percentage
+        except ValueError:
+            print("Invalid input!")
+    new_priority_text = input("New Priority: ")
+    if new_priority_text != "":
+        try:
+            new_priority = int(new_priority_text)
+            project.priority = new_priority
+        except ValueError:
+            print("Invalid input!")
+    return project
 
 
 main()
