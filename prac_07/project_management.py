@@ -3,7 +3,7 @@ Project Management Program
 Estimate:   90 minutes
 Start Time: 1242
 End Time:   xxxx
-Time Taken: 25 minutes (with breaks)
+Time Taken: 30 minutes (with breaks)
 """
 
 from prac_07.project import Project
@@ -31,9 +31,7 @@ def main():
         elif menu_choice == "S":
             print("save to filename")
         elif menu_choice == "D":
-            print("display projects")
-            for project in projects:
-                print(project)
+            display_projects(projects)
         elif menu_choice == "F":
             print("filter projects")
         elif menu_choice == "A":
@@ -59,6 +57,18 @@ def load_projects(filename):
             projects.append(project)
     print(f"Loaded {len(projects)} projects from {filename}")
     return projects
+
+
+def display_projects(projects):
+    """Display projects, sorted by priority and separated based on completion status"""
+    incomplete_projects = sorted([project for project in projects if not project.is_complete()])
+    complete_projects = sorted([project for project in projects if project.is_complete()])
+    print("Incomplete projects:")
+    for incomplete_project in incomplete_projects:
+        print(f"  {incomplete_project}")
+    print("Completed projects:")
+    for complete_project in complete_projects:
+        print(f"  {complete_project}")
 
 
 main()
