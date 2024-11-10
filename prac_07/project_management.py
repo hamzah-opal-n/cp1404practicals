@@ -3,7 +3,7 @@ Project Management Program
 Estimate:   90 minutes
 Start Time: 1242
 End Time:   xxxx
-Time Taken: 94 minutes (with breaks)
+Time Taken: 105 minutes (with breaks)
 """
 
 import datetime
@@ -51,7 +51,9 @@ def main():
             print("Invalid choice")
         print(MENU)
         menu_choice = input(INPUT_PROMPT).upper()
-    # ask if they want to save to default file
+    save_to_default_file_choice = input(f"Would you like to save to {DEFAULT_FILENAME}? ").upper()
+    if save_to_default_file_choice == "Y":
+        save_projects(projects, DEFAULT_FILENAME)
     print("Thank you for using custom-built project management software.")
 
 
