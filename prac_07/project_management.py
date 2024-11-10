@@ -2,8 +2,9 @@
 Project Management Program
 Estimate:   90 minutes
 Start Time: 1242
-End Time:   xxxx
-Time Taken: 105 minutes (with breaks)
+End Time:   2111*
+Time Taken: 116 minutes (with breaks)
+*I took a bunch of breaks in between to clear my head
 """
 
 import datetime
@@ -111,14 +112,14 @@ def update_project(project):
             new_percentage = int(new_percentage_text)
             project.percent_complete = new_percentage
         except ValueError:
-            print("Invalid input!")
+            pass
     new_priority_text = input("New Priority: ")
     if new_priority_text != "":
         try:
             new_priority = int(new_priority_text)
             project.priority = new_priority
         except ValueError:
-            print("Invalid input!")
+            pass
     return project
 
 
@@ -126,9 +127,9 @@ def create_project():
     """Create a new project based on user input"""
     name = input("Name: ")
     start_date = get_valid_date("Start date (dd/mm/yyyy): ")
-    priority = int(input("Priority: "))
-    cost_estimate = float(input("Cost estimate: $"))
-    percent_complete = int(input("Percent complete: "))
+    priority = get_valid_integer("Priority: ")
+    cost_estimate = get_valid_float("Cost estimate: $")
+    percent_complete = get_valid_integer("Percent complete: ")
     return Project(name, start_date, priority, cost_estimate, percent_complete)
 
 
@@ -136,13 +137,36 @@ def get_valid_date(prompt):
     """Get a valid date that follows the format dd/mm/yyyy"""
     is_valid_input = False
     while not is_valid_input:
-        date_string = input(prompt)
         try:
-            date = datetime.datetime.strptime(date_string, DATE_FORMAT_STRING)
+            date = datetime.datetime.strptime(input(prompt), DATE_FORMAT_STRING)
             is_valid_input = True
         except ValueError:
             print("Invalid date format!")
     return date
+
+
+def get_valid_integer(prompt):
+    """Get a valid integer with prompt"""
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            integer = int(input(prompt))
+            is_valid_input = True
+        except ValueError:
+            print("Invalid input!")
+    return integer
+
+
+def get_valid_float(prompt):
+    """Get a valid float with prompt"""
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            number = float(input(prompt))
+            is_valid_input = True
+        except ValueError:
+            print("Invalid input!")
+    return number
 
 
 main()
