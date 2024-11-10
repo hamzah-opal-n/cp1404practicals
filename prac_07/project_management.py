@@ -3,8 +3,10 @@ Project Management Program
 Estimate:   90 minutes
 Start Time: 1242
 End Time:   xxxx
-Time Taken: xx minutes (with breaks)
+Time Taken: 25 minutes (with breaks)
 """
+
+from prac_07.project import Project
 
 DEFAULT_FILENAME = "projects.txt"
 MENU = ("- (L)oad projects\n"
@@ -20,7 +22,7 @@ INPUT_PROMPT = ">>> "
 def main():
     """Project management program"""
     print("Welcome to Pythonic Project Management")
-    # Load projects from DEFAULT_FILENAME
+    projects = load_projects(DEFAULT_FILENAME)
     print(MENU)
     menu_choice = input(INPUT_PROMPT).upper()
     while menu_choice != "Q":
@@ -30,6 +32,8 @@ def main():
             print("save to filename")
         elif menu_choice == "D":
             print("display projects")
+            for project in projects:
+                print(project)
         elif menu_choice == "F":
             print("filter projects")
         elif menu_choice == "A":
@@ -42,6 +46,19 @@ def main():
         menu_choice = input(INPUT_PROMPT).upper()
     # ask if they want to save to default file
     print("Thank you for using custom-built project management software.")
+
+
+def load_projects(filename):
+    """Load projects from filename, values separated by tabs"""
+    projects = []
+    with open(filename, "r") as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.split("\t")
+            project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4]))
+            projects.append(project)
+    print(f"Loaded {len(projects)} projects from {filename}")
+    return projects
 
 
 main()
