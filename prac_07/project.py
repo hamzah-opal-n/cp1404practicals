@@ -1,4 +1,5 @@
 PROJECT_COMPLETE_PERCENTAGE = 100
+DATE_FORMAT_STRING = "%d/%m/%Y"
 
 
 class Project:
@@ -21,7 +22,7 @@ class Project:
 
     def __str__(self):
         """String to represent a Project instance."""
-        start_date_string = self.start_date.strftime("%d/%m/%Y")
+        start_date_string = self.start_date.strftime(DATE_FORMAT_STRING)
         return (f"{self.name}, start: {start_date_string}, priority {self.priority}, "
                 f"estimate: ${self.cost_estimate:.2f}, completion: {self.percent_complete}%")
 

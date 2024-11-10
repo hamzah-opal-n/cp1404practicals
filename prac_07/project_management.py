@@ -3,11 +3,11 @@ Project Management Program
 Estimate:   90 minutes
 Start Time: 1242
 End Time:   xxxx
-Time Taken: 30 minutes (with breaks)
+Time Taken: 85 minutes (with breaks)
 """
 
 import datetime
-from prac_07.project import Project
+from prac_07.project import Project, DATE_FORMAT_STRING
 
 DEFAULT_FILENAME = "projects.txt"
 MENU = ("- (L)oad projects\n"
@@ -81,8 +81,7 @@ def display_projects(projects):
 
 def filter_projects_by_date(projects):
     """Display all projects that start on or after a given date"""
-    date_string = input("Show projects that start after date (dd/mm/yy): ")
-    filter_date = datetime.datetime.strptime(date_string, "%d/%m/%Y")
+    filter_date = get_valid_date("Show projects that start after date (dd/mm/yyyy): ")
     filtered_projects = [project for project in projects if project.starts_after_date(filter_date)]
     for project in sorted(filtered_projects, key=lambda project: project.start_date):
         print(project)
@@ -110,12 +109,24 @@ def update_project(project):
 def create_project():
     """Create a new project based on user input"""
     name = input("Name: ")
-    start_date_string = input("Start date (dd/mm/yy): ")
-    start_date = datetime.datetime.strptime(start_date_string, "%d/%m/%Y")
+    start_date = get_valid_date("Start date (dd/mm/yyyy): ")
     priority = int(input("Priority: "))
     cost_estimate = float(input("Cost estimate: $"))
     percent_complete = int(input("Percent complete: "))
     return Project(name, start_date, priority, cost_estimate, percent_complete)
+
+
+def get_valid_date(prompt):
+    """Get a valid date that follows the format dd/mm/yyyy"""
+    is_valid_input = False
+    while not is_valid_input:
+        date_string = input(prompt)
+        try:
+            date = datetime.datetime.strptime(date_string, DATE_FORMAT_STRING)
+            is_valid_input = True
+        except ValueError:
+            print("Invalid date format!")
+    return date
 
 
 main()
