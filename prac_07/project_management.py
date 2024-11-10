@@ -34,7 +34,7 @@ def main():
         elif menu_choice == "D":
             display_projects(projects)
         elif menu_choice == "F":
-            print("filter projects")
+            filter_projects_by_date(projects)
         elif menu_choice == "A":
             print("add new project")
         elif menu_choice == "U":
@@ -71,6 +71,15 @@ def display_projects(projects):
     print("Completed projects:")
     for complete_project in complete_projects:
         print(f"  {complete_project}")
+
+
+def filter_projects_by_date(projects):
+    """Display all projects that start on or after a given date"""
+    date_string = input("Show projects that start after date (dd/mm/yy): ")
+    filter_date = datetime.datetime.strptime(date_string, "%d/%m/%Y")
+    filtered_projects = [project for project in projects if project.starts_after_date(filter_date)]
+    for project in sorted(filtered_projects, key=lambda project: project.start_date):
+        print(project)
 
 
 main()

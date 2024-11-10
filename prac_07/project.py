@@ -32,3 +32,7 @@ class Project:
     def is_complete(self):
         """Determine if a Project is complete."""
         return self.percent_complete >= PROJECT_COMPLETE_PERCENTAGE
+
+    def starts_after_date(self, date):
+        """Determine if a Project starts on or after a given date"""
+        return self.start_date >= date
