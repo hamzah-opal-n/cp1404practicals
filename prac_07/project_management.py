@@ -28,10 +28,11 @@ def main():
     menu_choice = input(INPUT_PROMPT).upper()
     while menu_choice != "Q":
         if menu_choice == "L":
-            print("load from different file")
+            file_to_load = input("Filename to load projects from: ")
+            projects = load_projects(file_to_load)
         elif menu_choice == "S":
-            output_filename = input("Filename to save to: ")
-            save_projects(projects, output_filename)
+            file_to_save = input("Filename to save projects to: ")
+            save_projects(projects, file_to_save)
         elif menu_choice == "D":
             display_projects(projects)
         elif menu_choice == "F":
