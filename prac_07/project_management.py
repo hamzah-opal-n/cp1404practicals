@@ -3,7 +3,7 @@ Project Management Program
 Estimate:   90 minutes
 Start Time: 1242
 End Time:   xxxx
-Time Taken: 85 minutes (with breaks)
+Time Taken: 94 minutes (with breaks)
 """
 
 import datetime
@@ -30,7 +30,8 @@ def main():
         if menu_choice == "L":
             print("load from different file")
         elif menu_choice == "S":
-            print("save to filename")
+            output_filename = input("Filename to save to: ")
+            save_projects(projects, output_filename)
         elif menu_choice == "D":
             display_projects(projects)
         elif menu_choice == "F":
@@ -65,6 +66,18 @@ def load_projects(filename):
             projects.append(project)
     print(f"Loaded {len(projects)} projects from {filename}")
     return projects
+
+
+def save_projects(projects, filename):
+    """Save projects to filename, values separated by tabs"""
+    with open(filename, "w") as out_file:
+        print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
+        for project in projects:
+            start_date_string = project.start_date.strftime(DATE_FORMAT_STRING)
+            fields = (project.name, start_date_string, str(project.priority),
+                      str(project.cost_estimate), str(project.percent_complete))
+            row = "\t".join(fields)
+            print(row, file=out_file)
 
 
 def display_projects(projects):
