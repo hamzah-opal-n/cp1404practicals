@@ -36,7 +36,9 @@ def main():
         elif menu_choice == "F":
             filter_projects_by_date(projects)
         elif menu_choice == "A":
-            print("add new project")
+            print("Let's add a new project")
+            new_project = create_project()
+            projects.append(new_project)
         elif menu_choice == "U":
             for i, project in enumerate(projects):
                 print(f"{i} {project}")
@@ -103,6 +105,17 @@ def update_project(project):
         except ValueError:
             print("Invalid input!")
     return project
+
+
+def create_project():
+    """Create a new project based on user input"""
+    name = input("Name: ")
+    start_date_string = input("Start date (dd/mm/yy): ")
+    start_date = datetime.datetime.strptime(start_date_string, "%d/%m/%Y")
+    priority = int(input("Priority: "))
+    cost_estimate = float(input("Cost estimate: $"))
+    percent_complete = int(input("Percent complete: "))
+    return Project(name, start_date, priority, cost_estimate, percent_complete)
 
 
 main()
