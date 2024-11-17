@@ -11,7 +11,8 @@ class DynamicLabelsApp(App):
     def __init__(self, **kwargs):
         """Construct main app."""
         super().__init__(**kwargs)
-        self.names = ["Jeff", "Tom"]
+        self.names = ["Sonic", "Ivo Robotnik", "Agent Stone", "Tails", "Knuckles",
+                      "Shadow", "Gerald Robotnik", "Amy?", "Metal Sonic?"]
 
     def build(self):
         """Build the Kivy GUI."""
@@ -22,7 +23,9 @@ class DynamicLabelsApp(App):
 
     def create_labels(self):
         """Create labels from data and add them to the GUI."""
-        print("Will do this later")
+        for name in self.names:
+            new_label = Label(text=name)
+            self.root.ids.main.add_widget(new_label)
 
 
 DynamicLabelsApp().run()
