@@ -9,7 +9,7 @@ class BoxLayoutDemo(App):
     def build(self):
         """Build the Kivy GUI."""
         self.title = "Box Layout Demo"
-        self.root = Builder.load_file("box_layout.kv")
+        self.root = Builder.load_file("box_layout_demo.kv")
         return self.root
 
     def handle_greet(self):
