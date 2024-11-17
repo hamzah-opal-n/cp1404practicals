@@ -19,9 +19,14 @@ class MilesToKilometresConverter(App):
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
 
-    def handle_conversion(self, distance_in_miles):
+    def handle_conversion(self):
         """Handle conversion from miles to kilometres"""
-        self.distance_in_kilometres = str(float(distance_in_miles) * MILES_TO_KILOMETRES_RATE)
+        self.distance_in_kilometres = str(float(self.root.ids.input_number.text) * MILES_TO_KILOMETRES_RATE)
+
+    def handle_increment(self, increment):
+        """Handle increment of specified value"""
+        value = float(self.root.ids.input_number.text) + increment
+        self.root.ids.input_number.text = str(value)
 
 
 MilesToKilometresConverter().run()
