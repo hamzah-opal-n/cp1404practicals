@@ -11,6 +11,7 @@ def main():
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2),
              SilverServiceTaxi("Hummer", 200, 4)]
     current_taxi = None
+    total_bill = 0
 
     print("Let's drive!")
     print(MENU)
@@ -23,16 +24,16 @@ def main():
             print("Drive")
         else:
             print("Invalid option")
-        print("Bill to date: xxxxx")
+        print(f"Bill to date: ${total_bill:.2f}")
         print(MENU)
         menu_choice = input(">>> ").lower()
-    print("Total trip cost: $xxx.xx")
+    print(f"Total trip cost: ${total_bill:.2f}")
     print("Taxis are now:")
     display_taxis(taxis)
 
 
 def display_taxis(taxis):
-    """Display taxis with numbered position in list."""
+    """Display numbered list of taxis."""
     for i, taxi in enumerate(taxis):
         print(f"{i} - {taxi}")
 
