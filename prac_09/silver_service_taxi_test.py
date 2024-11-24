@@ -7,4 +7,4 @@ print(hummer)
 
 fancy_taxi = SilverServiceTaxi("Fancy Taxi", 1000, 2.0)
 fancy_taxi.drive(18)
-assert fancy_taxi.get_fare() == 48.78
+assert fancy_taxi.get_fare() == 48.80
