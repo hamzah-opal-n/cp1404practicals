@@ -1,0 +1,1 @@
+"""SilverServiceTaxi class test"""
