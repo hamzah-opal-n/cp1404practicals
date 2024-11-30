@@ -29,13 +29,15 @@ def format_as_sentence(text):
     """
     Format a phrase as a sentence, starting with a capital and ending with a single full stop
     >>> format_as_sentence("hello")
-    Hello.
+    'Hello.'
     >>> format_as_sentence("It is an ex parrot.")
-    It is an ex parrot.
+    'It is an ex parrot.'
     >>> format_as_sentence("you're having fun.")
-    You're having fun.
+    "You're having fun."
     """
-    pass
+    if text[-1] != ".":
+        text += "."
+    return text.capitalize()
 
 
 def run_tests():
@@ -73,7 +75,7 @@ doctest.testmod()
 # 4. Fix the failing is_long_word function
 # (Don't change the tests, change the function!)
 
-# TODO: 5. Write and test a function to format a phrase as a sentence,
+# 5. Write and test a function to format a phrase as a sentence,
 # starting with a capital and ending with a single full stop.
 # Important: start with a function header and just use pass as the body
 # then add doctests for 3 tests:
