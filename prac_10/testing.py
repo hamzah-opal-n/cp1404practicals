@@ -25,6 +25,19 @@ def is_long_word(word, length=5):
     return len(word) >= length
 
 
+def format_as_sentence(text):
+    """
+    Format a phrase as a sentence, starting with a capital and ending with a single full stop
+    >>> format_as_sentence("hello")
+    Hello.
+    >>> format_as_sentence("It is an ex parrot.")
+    It is an ex parrot.
+    >>> format_as_sentence("you're having fun.")
+    You're having fun.
+    """
+    pass
+
+
 def run_tests():
     """Run the tests on the functions."""
     # assert test with no message - used to see if the function works properly
